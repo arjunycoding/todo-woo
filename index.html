@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    <link rel="stylesheet" href="style.css">
+    <title>Todo Woo</title>
+</head>
+<body>
+    <div class="margin">
+        <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #ffa600;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="logo.png" alt="" width="24" height="24" class="d-inline-block align-text-top">    
+                    Todo Woo
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                    <a class="nav-link link-dark" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link link-dark" href="#">Compleate</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link link-dark" href="#">Upgrade</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- New Todo -->
+    <div id="everything">
+        <!-- Heading -->
+        <div class="row"><h1><b id="heading">Current Todos</b></h1></div>
+
+        <!-- Home -->
+
+        <div id="home" class="row">
+            <div id="noTodo">
+                <h3 class="text-center">Looks like you have no todos! Nice Work!</h3>
+            </div>
+            <div>
+                <div class="col-lg-3"></div>
+                <div class="todos col-lg-6"></div>
+                <div class="col-lg-3"></div>
+                <button class="btn btn-primary text-center" id="newTodo" width="100px">New Todo</button>
+            </div>
+        </div>
+        <!-- New Todo -->
+
+        <div class="newTodo">
+            <div>
+                <label for="title" class="form-label">Title:</label>
+                <input type="email" class="form-control input-sm" id="title" aria-describedby="emailHelp"><br>
+                <label for="exampleFormControlTextarea1" class="form-label">Memo:</label>
+                <textarea class="form-control" id="memo" maxlength="" rows="3"></textarea>
+            </div><br/>
+            <!-- <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="important">
+                <label class="form-check-label" for="exampleCheck1">Important</label>
+            </div> -->
+            <p>What color would you like your task to be?</p>
+            <button type="button" class="color btn btn-primary"></button>
+            <button type="button" class="color btn btn-secondary"></button>
+            <button type="button" class="color btn btn-success"></button>
+            <button type="button" class="color btn btn-danger"></button>
+            <button type="button" class="color btn btn-warning"></button>
+            <button type="button" class="color btn btn-info"></button>
+            <button type="button" class="color btn btn-light light"></button>
+            <button type="button" class="color btn btn-dark"></button>
+                <button class="btn btn-primary" id="createTodo">Create Todo</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -23,9 +23,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                    <a class="nav-link link-dark" href="#">Home</a>
+                    <a id="homeBtn"class="nav-link link-dark" href="#">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="compleateBtn"class="nav-item">
                     <a class="nav-link link-dark" href="#">Compleate</a>
                     </li>
                     <li class="nav-item">
@@ -36,52 +36,55 @@
             </div>
         </nav>
     </div>
-    <!-- New Todo -->
     <div id="everything">
         <!-- Heading -->
+
         <div class="row"><h1><b id="heading">Current Todos</b></h1></div>
 
         <!-- Home -->
 
-        <div id="home" class="row">
-            <div id="noTodo">
-                <h3 class="text-center">Looks like you have no todos! Nice Work!</h3>
+        <div class="home">
+            <div id="home" class="row">
+                <div id="noTodo">
+                    <h3 class="text-center">Looks like you have no todos! Nice Work!</h3>
+                </div>
+                <div>
+                    <div class="todos col-lg-6"></div>
+                    <button class="btn btn-primary text-center" id="newTodo" width="100px">New Todo</button>
+                </div>
             </div>
-            <div>
-                <div class="todos col-lg-6"></div>
-                <button class="btn btn-primary text-center" id="newTodo" width="100px">New Todo</button>
-            </div>
-        </div>
-        <!-- New Todo -->
 
-        <div class="newTodo">
-            <div class="error alert alert-danger"> Please enter something in "Title"</div>
-            <div>
-                <label for="title" class="form-label">Title:</label>
-                <input type="email" class="form-control input-sm" id="title" aria-describedby="emailHelp"><br>
-                <label for="exampleFormControlTextarea1" class="form-label">Memo:</label>
-                <textarea class="form-control" id="memo" maxlength="" rows="3"></textarea>
-            </div><br/>
-            <!-- <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="important">
-                <label class="form-check-label" for="exampleCheck1">Important</label>
-            </div> -->
-            <p>What color would you like your task to be?</p>
-            <button type="button" class="color btn btn-primary"></button>
-            <button type="button" class="color btn btn-secondary"></button>
-            <button type="button" class="color btn btn-success"></button>
-            <button type="button" class="color btn btn-danger"></button>
-            <button type="button" class="color btn btn-warning"></button>
-            <button type="button" class="color btn btn-info"></button>
-            <button type="button" class="color btn btn-light light"></button>
-            <button type="button" class="color btn btn-dark"></button>
-            <br/><br/>
-            <div class="editOptins">
-                <button type="button" class="btn btn-primary" id="save">Save</button>
-                <button type="button" class="btn btn-success">Compleate</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+            <!------- New Todo --->
+    
+            <div class="newTodo">
+                <div class="error1 alert alert-danger error"> Please enter something in "Title"</div>
+                <div class="error2 alert alert-danger error"> Please enter a color</div>
+                <div class="errorBoth alert alert-danger error"> Please enter a color and title</div>
+                <div>
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="email" class="form-control input-sm" id="title" aria-describedby="emailHelp"><br>
+                    <label for="exampleFormControlTextarea1" class="form-label">Memo:</label>
+                    <textarea class="form-control" id="memo" maxlength="" rows="3"></textarea>
+                </div><br/>
+                <p>What color would you like your task to be?</p>
+                <button type="button" class="color btn btn-primary"></button>
+                <button type="button" class="color btn btn-secondary"></button>
+                <button type="button" class="color btn btn-success"></button>
+                <button type="button" class="color btn btn-danger"></button>
+                <button type="button" class="color btn btn-warning"></button>
+                <button type="button" class="color btn btn-info"></button>
+                <button type="button" class="color btn btn-light light"></button>
+                <button type="button" class="color btn btn-dark"></button>
+                <br/><br/>
+                <div class="editOptins">
+                    <button type="button" class="btn btn-primary" id="save">Save</button>
+                    <button type="button" class="btn btn-success">Compleate</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button class="btn btn-secondary cancel" id="cancel1">cancel</button>
+                </div>
+                <button class="btn btn-primary" id="createTodo">Create Todo</button>
+                <button class="btn btn-secondary cancel" id="cancel">cancel</button>
             </div>
-            <button class="btn btn-primary" id="createTodo">Create Todo</button>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>

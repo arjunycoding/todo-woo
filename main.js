@@ -2,9 +2,9 @@ let createTodo = $("#createTodo")
 let newTodo = $("#newTodo")
 let heading = $("#heading")
 let color = "alert"
-let error = $(".error")
+let error = $(".error1")
 let el = 0
-let prevColor = 0
+let prevColor = "alert"
 
 // When the ""New Todo butn is clicked
 newTodo.on("click",function(){
@@ -25,23 +25,31 @@ $(".color").on("click",function(){
 createTodo.on("click", function(){
     let titleVal = $("input#title").val()
     let memoVal = $.trim($("#memo").val())
-    if(titleVal == ""){
-        error.show()
+    if(prevColor == "alert" && titleVal == ""){
+        $(".errorBoth").show()
         return
-    }
-    if(memo == ""){
-        $(".todos").append(
-            `<div class="alert ${color} todoItem" role="alert">
-            <b id="todoTitle">${titleVal}</b>
-            </div>`)        
+    } else if(titleVal == ""){
+        error.show()       
+        return
+    } else if(color == "alert"){
+        $(".error2").show()
+        return
     } else {
-        $(".todos").append(
-            `<div class="alert ${color} todoItem" role="alert">
-            <b id="todoTitle">${titleVal}</b> --> ${memoVal}
-            </div>`
-        )
+        if(memoVal == ""){
+            $(".todos").append(
+                `<div class="alert ${color} todoItem" role="alert">
+                <b id="todoTitle">${titleVal}</b>
+                </div>`
+            )
+        } else {
+            $(".todos").append(
+                `<div class="alert ${color} todoItem" role="alert">
+                <b id="todoTitle">${titleVal}</b> --> ${memoVal}
+                </div>`
+            )
+        }
     } 
-    console.log(`Hi "${memoVal}"`)
+    console.log(color)
     heading.html("Current Todos")
     $("input#title").val("")
     $.trim($("#memo").val(""))
@@ -54,6 +62,9 @@ createTodo.on("click", function(){
     $(".todos").show()
     createTodo.show()
     $(".editOptins").hide()
+    $(".errorBoth").hide()
+    $(".error2").hide()
+    $(".error1").hide()
 })
 
 $("#home").on("click", ".todoItem", function(){
@@ -62,14 +73,15 @@ $("#home").on("click", ".todoItem", function(){
     let splitted = item.replace(/\s{2,}/g, '').split('-->');
     let title = splitted[0]
     let memo = splitted[1]
-    let titleVal = $("input#title").val(title)
-    let memoVal = $.trim($("#memo").val(memo))
+    // let titleVal = $("input#title").val(title)
+    // let memoVal = $.trim($("#memo").val(memo))
     console.log(title, memo)
     heading.html("Edit Todo")
     $(".newTodo").show()
     $("#home").hide()
     $("#createTodo").hide()
     $(".editOptins").show()
+    $("#cancel").hide()
     
     
 })
@@ -92,4 +104,18 @@ $("#save").on("click", function(){
     newTodo.show()
     $(".todos").show()
 
+})
+
+$(".cancel").on("click", function(){
+    $(".newTodo").hide()    
+    $("#home").show()
+    if($(".todos").html() == ""){
+        $("#noTodo").show()
+    }
+    newTodo.show()
+    createTodo.hide()
+    $(".editOptins").hide()
+    $(".errorBoth").hide()
+    $(".error2").hide()
+    $(".error1").hide()
 })

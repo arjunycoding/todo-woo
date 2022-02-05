@@ -139,3 +139,26 @@ $(".delete").on("click", function(){
     
 
 })
+
+$(".compleate").on("click", function(){
+    let todoClass = $(`.todoItem:contains(${todoItemClicked})`)
+    todoClass.appendTo(".todosCompleate")
+    console.log($(todoClass))
+    todoClass.remove()
+    $("#compleate").show()
+    $(".newTodo").hide()
+    $("#home").show()
+    if($(".todos").html() == ""){
+        $("#noTodo").show()
+        $(".todos").hide()
+    }
+    newTodo.show()
+    createTodo.hide()
+    $("input#title").val("")
+    $.trim($("#memo").val(""))
+    $(".editOptins").hide()
+    $(".errorBoth").hide()
+    $(".error2").hide()
+    $(".error1").hide()
+
+})

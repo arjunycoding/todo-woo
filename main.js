@@ -5,6 +5,7 @@ let color = "alert"
 let error = $(".error1")
 let el = 0
 let prevColor = "alert"
+let todoItemClicked = ""
 
 // When the ""New Todo butn is clicked
 newTodo.on("click",function(){
@@ -48,8 +49,7 @@ createTodo.on("click", function(){
                 </div>`
             )
         }
-     
-    console.log(color)
+    } 
     heading.html("Current Todos")
     $("input#title").val("")
     $.trim($("#memo").val(""))
@@ -73,15 +73,15 @@ $("#home").on("click", ".todoItem", function(){
     let splitted = item.replace(/\s{2,}/g, '').split('-->');
     let title = splitted[0]
     let memo = splitted[1]
-    // let titleVal = $("input#title").val(title)
-    // let memoVal = $.trim($("#memo").val(memo))
-    console.log(title, memo)
+    let titleVal = $("input#title").val(title)
+    let memoVal = $.trim($("#memo").val(memo))
     heading.html("Edit Todo")
     $(".newTodo").show()
     $("#home").hide()
     $("#createTodo").hide()
     $(".editOptins").show()
-    $("#cancel").show()
+    $("#cancel").hide()
+    todoItemClicked = el.text()
     
     
 })
@@ -90,7 +90,6 @@ $("#save").on("click", function(){
     heading.html("Current Todos")
     let titleVal = $("input#title").val()
     let memoVal = $.trim($("#memo").val())
-    console.log(color, prevColor)
     el.removeClass(prevColor);
     el.addClass(color);
     el.html(`<b id="todoTitle">${titleVal}</b> --> ${memoVal}`)
@@ -118,4 +117,48 @@ $(".cancel").on("click", function(){
     $(".errorBoth").hide()
     $(".error2").hide()
     $(".error1").hide()
+})
+
+$(".delete").on("click", function(){
+    let todoClass = $(`div:contains(${todoItemClicked})`)[5]
+    todoClass.remove()
+    $(".newTodo").hide()    
+    $("#home").show()
+    if($(".todos").html() == ""){
+        $("#noTodo").show()
+        $(".todos").hide()
+    }
+    newTodo.show()
+    createTodo.hide()
+    $("input#title").val("")
+    $.trim($("#memo").val(""))
+    $(".editOptins").hide()
+    $(".errorBoth").hide()
+    $(".error2").hide()
+    $(".error1").hide()
+    
+
+})
+
+$(".compleate").on("click", function(){
+    let todoClass = $(`.todoItem:contains(${todoItemClicked})`)
+    todoClass.appendTo(".todosCompleate")
+    console.log($(todoClass))
+    todoClass.remove()
+    $("#compleate").show()
+    $(".newTodo").hide()
+    $("#home").show()
+    if($(".todos").html() == ""){
+        $("#noTodo").show()
+        $(".todos").hide()
+    }
+    newTodo.show()
+    createTodo.hide()
+    $("input#title").val("")
+    $.trim($("#memo").val(""))
+    $(".editOptins").hide()
+    $(".errorBoth").hide()
+    $(".error2").hide()
+    $(".error1").hide()
+
 })

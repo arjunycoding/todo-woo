@@ -142,8 +142,8 @@ $(".delete").on("click", function(){
 
 $(".compleate").on("click", function(){
     let todoClass = $(`.todoItem:contains(${todoItemClicked})`)
-    todoClass.appendTo(".todosCompleate")
-    console.log($(todoClass))
+    let newEl = todoClass
+    $(".todosCompleate").append(newEl)
     todoClass.remove()
     $("#compleate").show()
     $(".newTodo").hide()

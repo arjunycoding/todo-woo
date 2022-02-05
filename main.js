@@ -48,7 +48,7 @@ createTodo.on("click", function(){
                 </div>`
             )
         }
-    } 
+     
     console.log(color)
     heading.html("Current Todos")
     $("input#title").val("")
@@ -81,7 +81,7 @@ $("#home").on("click", ".todoItem", function(){
     $("#home").hide()
     $("#createTodo").hide()
     $(".editOptins").show()
-    $("#cancel").hide()
+    $("#cancel").show()
     
     
 })
